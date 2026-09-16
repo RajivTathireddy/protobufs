@@ -1,0 +1,62 @@
+name: Generate Protobufs
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**/*.proto'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # Required to compare current commit with the previous one
+
+      - name: Install Protoc
+        run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
+
+      - name: Install Latest Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 'stable' # Automatically uses the latest stable Go release
+          
+      - name: Install Go Protoc Plugins
+        run: |
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+
+      - name: Detect Changes and Generate Go Code
+        run: |
+          # 1. Get changed .proto files
+          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD | grep '\.proto$' || true)
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No proto files changed."
+            exit 0
+          fi
+
+          # 2. Extract unique service/version base directories (e.g., "users/v1")
+          CHANGED_DIRS=$(echo "$CHANGED_FILES" | sed -n 's|\(.*\)/proto/.*\.proto|\1|p' | sort -u)
+
+          # 3. Generate code only for changed directories
+          for DIR in $CHANGED_DIRS; do
+            echo "Generating Go code for $DIR"
+            
+            mkdir -p "$DIR/go"
+
+            protoc -I=. \
+              --go_out="$DIR/go" --go_opt=module=github.com/RajivTathireddy/protobufs/$DIR \
+              --go-grpc_out="$DIR/go" --go-grpc_opt=module=github.com/RajivTathireddy/protobufs/$DIR \
+              "$DIR/proto"/*.proto
+          done
+
+      - name: Commit and Push Generated Code
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: auto-generate protobuf Go code [skip ci]" || echo "No changes to commit"
+          git push

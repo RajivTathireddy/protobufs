@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package users.v1;
+
+option go_package = "github.com/RajivTathireddy/protobufs/users/v1;usersv1";
+
+import "users/v1/proto/users.proto";
+
+service UserService {
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+    rpc LoginUser(UserLoginRequest) returns (UserLoginResponse);
+    rpc GetUser(GetUserRequest) returns (GetUserResponse);
+    rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+    rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+}

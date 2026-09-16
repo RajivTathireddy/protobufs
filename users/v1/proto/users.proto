@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package users.v1;
+
+option go_package = "github.com/RajivTathireddy/protobufs/users/v1;usersv1";
+
+enum UserRole {
+    USER_ROLE_UNSPECIFIED = 0;
+    USER_ROLE_CUSTOMER = 1;
+    USER_ROLE_SELLER = 2;
+    USER_ROLE_SUPPORT = 3;
+    USER_ROLE_ADMIN = 4;
+}
+
+message UserProfile {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string phone_number = 4;
+    string address = 5;
+    UserRole role = 6;
+}
+
+message CreateUserRequest {
+    string name = 1;
+    string email = 2;
+    string phone_number = 3;
+    string password = 4;
+    string address = 5;
+    UserRole role = 6;
+}
+
+message CreateUserResponse {
+    UserProfile user = 1;
+}
+
+message UserLoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message UserLoginResponse {
+    UserProfile user = 1;
+}
+
+message GetUserRequest {
+    oneof user_request{
+        string id = 1;
+        string email = 2;
+    }
+}
+
+message GetUserResponse {
+    UserProfile user = 1;
+}
+
+message UpdateUserRequest {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string password = 4;
+    string phone_number = 5;
+    string address = 6;
+    UserRole role = 7;
+}
+
+message UpdateUserResponse {
+    UserProfile user = 1;
+}
+
+message DeleteUserRequest {
+    string id = 1;
+}
+
+message DeleteUserResponse {}

@@ -10,6 +10,7 @@ enum UserRole {
     USER_ROLE_SELLER = 2;
     USER_ROLE_SUPPORT = 3;
     USER_ROLE_ADMIN = 4;
+    USER_ROLE_PARTNER = 5;
 }
 
 message UserProfile {

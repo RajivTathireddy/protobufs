@@ -29,7 +29,6 @@ const (
 	UserRole_USER_ROLE_SELLER      UserRole = 2
 	UserRole_USER_ROLE_SUPPORT     UserRole = 3
 	UserRole_USER_ROLE_ADMIN       UserRole = 4
-	UserRole_USER_ROLE_PARTNER     UserRole = 5
 )
 
 // Enum value maps for UserRole.
@@ -40,7 +39,6 @@ var (
 		2: "USER_ROLE_SELLER",
 		3: "USER_ROLE_SUPPORT",
 		4: "USER_ROLE_ADMIN",
-		5: "USER_ROLE_PARTNER",
 	}
 	UserRole_value = map[string]int32{
 		"USER_ROLE_UNSPECIFIED": 0,
@@ -48,7 +46,6 @@ var (
 		"USER_ROLE_SELLER":      2,
 		"USER_ROLE_SUPPORT":     3,
 		"USER_ROLE_ADMIN":       4,
-		"USER_ROLE_PARTNER":     5,
 	}
 )
 
@@ -773,14 +770,13 @@ const file_users_v1_proto_users_proto_rawDesc = "" +
 	"\x04user\x18\x01 \x01(\v2\x15.users.v1.UserProfileR\x04user\"#\n" +
 	"\x11DeleteUserRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"\x14\n" +
-	"\x12DeleteUserResponse*\x96\x01\n" +
+	"\x12DeleteUserResponse*\x7f\n" +
 	"\bUserRole\x12\x19\n" +
 	"\x15USER_ROLE_UNSPECIFIED\x10\x00\x12\x16\n" +
 	"\x12USER_ROLE_CUSTOMER\x10\x01\x12\x14\n" +
 	"\x10USER_ROLE_SELLER\x10\x02\x12\x15\n" +
 	"\x11USER_ROLE_SUPPORT\x10\x03\x12\x13\n" +
-	"\x0fUSER_ROLE_ADMIN\x10\x04\x12\x15\n" +
-	"\x11USER_ROLE_PARTNER\x10\x05B7Z5github.com/RajivTathireddy/protobufs/users/v1;usersv1b\x06proto3"
+	"\x0fUSER_ROLE_ADMIN\x10\x04B7Z5github.com/RajivTathireddy/protobufs/users/v1;usersv1b\x06proto3"
 
 var (
 	file_users_v1_proto_users_proto_rawDescOnce sync.Once

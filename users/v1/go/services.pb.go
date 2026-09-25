@@ -24,45 +24,50 @@ var File_users_v1_proto_services_proto protoreflect.FileDescriptor
 
 const file_users_v1_proto_services_proto_rawDesc = "" +
 	"\n" +
-	"\x1dusers/v1/proto/services.proto\x12\busers.v1\x1a\x1ausers/v1/proto/users.proto2\xee\x02\n" +
+	"\x1dusers/v1/proto/services.proto\x12\busers.v1\x1a\x1ausers/v1/proto/users.proto2\xcb\x03\n" +
 	"\vUserService\x12G\n" +
 	"\n" +
 	"CreateUser\x12\x1b.users.v1.CreateUserRequest\x1a\x1c.users.v1.CreateUserResponse\x12D\n" +
 	"\tLoginUser\x12\x1a.users.v1.UserLoginRequest\x1a\x1b.users.v1.UserLoginResponse\x12>\n" +
 	"\aGetUser\x12\x18.users.v1.GetUserRequest\x1a\x19.users.v1.GetUserResponse\x12G\n" +
 	"\n" +
-	"UpdateUser\x12\x1b.users.v1.UpdateUserRequest\x1a\x1c.users.v1.UpdateUserResponse\x12G\n" +
+	"UpdateUser\x12\x1b.users.v1.UpdateUserRequest\x1a\x1c.users.v1.UpdateUserResponse\x12[\n" +
+	"\x0eUpdatePassword\x12#.users.v1.UpdateUserPasswordRequest\x1a$.users.v1.UpdateUserPasswordResponse\x12G\n" +
 	"\n" +
 	"DeleteUser\x12\x1b.users.v1.DeleteUserRequest\x1a\x1c.users.v1.DeleteUserResponseB7Z5github.com/RajivTathireddy/protobufs/users/v1;usersv1b\x06proto3"
 
 var file_users_v1_proto_services_proto_goTypes = []any{
-	(*CreateUserRequest)(nil),  // 0: users.v1.CreateUserRequest
-	(*UserLoginRequest)(nil),   // 1: users.v1.UserLoginRequest
-	(*GetUserRequest)(nil),     // 2: users.v1.GetUserRequest
-	(*UpdateUserRequest)(nil),  // 3: users.v1.UpdateUserRequest
-	(*DeleteUserRequest)(nil),  // 4: users.v1.DeleteUserRequest
-	(*CreateUserResponse)(nil), // 5: users.v1.CreateUserResponse
-	(*UserLoginResponse)(nil),  // 6: users.v1.UserLoginResponse
-	(*GetUserResponse)(nil),    // 7: users.v1.GetUserResponse
-	(*UpdateUserResponse)(nil), // 8: users.v1.UpdateUserResponse
-	(*DeleteUserResponse)(nil), // 9: users.v1.DeleteUserResponse
+	(*CreateUserRequest)(nil),          // 0: users.v1.CreateUserRequest
+	(*UserLoginRequest)(nil),           // 1: users.v1.UserLoginRequest
+	(*GetUserRequest)(nil),             // 2: users.v1.GetUserRequest
+	(*UpdateUserRequest)(nil),          // 3: users.v1.UpdateUserRequest
+	(*UpdateUserPasswordRequest)(nil),  // 4: users.v1.UpdateUserPasswordRequest
+	(*DeleteUserRequest)(nil),          // 5: users.v1.DeleteUserRequest
+	(*CreateUserResponse)(nil),         // 6: users.v1.CreateUserResponse
+	(*UserLoginResponse)(nil),          // 7: users.v1.UserLoginResponse
+	(*GetUserResponse)(nil),            // 8: users.v1.GetUserResponse
+	(*UpdateUserResponse)(nil),         // 9: users.v1.UpdateUserResponse
+	(*UpdateUserPasswordResponse)(nil), // 10: users.v1.UpdateUserPasswordResponse
+	(*DeleteUserResponse)(nil),         // 11: users.v1.DeleteUserResponse
 }
 var file_users_v1_proto_services_proto_depIdxs = []int32{
-	0, // 0: users.v1.UserService.CreateUser:input_type -> users.v1.CreateUserRequest
-	1, // 1: users.v1.UserService.LoginUser:input_type -> users.v1.UserLoginRequest
-	2, // 2: users.v1.UserService.GetUser:input_type -> users.v1.GetUserRequest
-	3, // 3: users.v1.UserService.UpdateUser:input_type -> users.v1.UpdateUserRequest
-	4, // 4: users.v1.UserService.DeleteUser:input_type -> users.v1.DeleteUserRequest
-	5, // 5: users.v1.UserService.CreateUser:output_type -> users.v1.CreateUserResponse
-	6, // 6: users.v1.UserService.LoginUser:output_type -> users.v1.UserLoginResponse
-	7, // 7: users.v1.UserService.GetUser:output_type -> users.v1.GetUserResponse
-	8, // 8: users.v1.UserService.UpdateUser:output_type -> users.v1.UpdateUserResponse
-	9, // 9: users.v1.UserService.DeleteUser:output_type -> users.v1.DeleteUserResponse
-	5, // [5:10] is the sub-list for method output_type
-	0, // [0:5] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: users.v1.UserService.CreateUser:input_type -> users.v1.CreateUserRequest
+	1,  // 1: users.v1.UserService.LoginUser:input_type -> users.v1.UserLoginRequest
+	2,  // 2: users.v1.UserService.GetUser:input_type -> users.v1.GetUserRequest
+	3,  // 3: users.v1.UserService.UpdateUser:input_type -> users.v1.UpdateUserRequest
+	4,  // 4: users.v1.UserService.UpdatePassword:input_type -> users.v1.UpdateUserPasswordRequest
+	5,  // 5: users.v1.UserService.DeleteUser:input_type -> users.v1.DeleteUserRequest
+	6,  // 6: users.v1.UserService.CreateUser:output_type -> users.v1.CreateUserResponse
+	7,  // 7: users.v1.UserService.LoginUser:output_type -> users.v1.UserLoginResponse
+	8,  // 8: users.v1.UserService.GetUser:output_type -> users.v1.GetUserResponse
+	9,  // 9: users.v1.UserService.UpdateUser:output_type -> users.v1.UpdateUserResponse
+	10, // 10: users.v1.UserService.UpdatePassword:output_type -> users.v1.UpdateUserPasswordResponse
+	11, // 11: users.v1.UserService.DeleteUser:output_type -> users.v1.DeleteUserResponse
+	6,  // [6:12] is the sub-list for method output_type
+	0,  // [0:6] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_users_v1_proto_services_proto_init() }

@@ -11,5 +11,6 @@ service UserService {
     rpc LoginUser(UserLoginRequest) returns (UserLoginResponse);
     rpc GetUser(GetUserRequest) returns (GetUserResponse);
     rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+    rpc UpdatePassword(UpdateUserPasswordRequest) returns (UpdateUserPasswordResponse);
     rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
 }

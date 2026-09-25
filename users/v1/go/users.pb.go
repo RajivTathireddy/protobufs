@@ -640,7 +640,8 @@ func (x *UpdateUserResponse) GetUser() *UserProfile {
 
 type UpdateUserPasswordRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Password      string                 `protobuf:"bytes,1,opt,name=password,proto3" json:"password,omitempty"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -673,6 +674,13 @@ func (x *UpdateUserPasswordRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use UpdateUserPasswordRequest.ProtoReflect.Descriptor instead.
 func (*UpdateUserPasswordRequest) Descriptor() ([]byte, []int) {
 	return file_users_v1_proto_users_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *UpdateUserPasswordRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
 }
 
 func (x *UpdateUserPasswordRequest) GetPassword() string {
@@ -838,9 +846,10 @@ const file_users_v1_proto_users_proto_rawDesc = "" +
 	"\aaddress\x18\x05 \x01(\tR\aaddress\x12&\n" +
 	"\x04role\x18\x06 \x01(\x0e2\x12.users.v1.UserRoleR\x04role\"?\n" +
 	"\x12UpdateUserResponse\x12)\n" +
-	"\x04user\x18\x01 \x01(\v2\x15.users.v1.UserProfileR\x04user\"7\n" +
-	"\x19UpdateUserPasswordRequest\x12\x1a\n" +
-	"\bpassword\x18\x01 \x01(\tR\bpassword\"\x1c\n" +
+	"\x04user\x18\x01 \x01(\v2\x15.users.v1.UserProfileR\x04user\"G\n" +
+	"\x19UpdateUserPasswordRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"\x1c\n" +
 	"\x1aUpdateUserPasswordResponse\"#\n" +
 	"\x11DeleteUserRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"\x14\n" +

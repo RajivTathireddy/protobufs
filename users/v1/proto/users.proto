@@ -68,7 +68,8 @@ message UpdateUserResponse {
 }
 
 message UpdateUserPasswordRequest{
-    string password = 1;
+    string id = 1;
+    string password = 2;
 }
 
 message UpdateUserPasswordResponse{}
